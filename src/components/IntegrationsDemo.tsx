@@ -32,10 +32,10 @@ const IntegrationsDemo = () => {
         'Agenda reuniões direto pelo Instagram'
       ],
       demoSteps: [
-        { action: 'Nova mensagem recebida', status: 'Analisando contexto...', icon: MessageCircle },
+        { action: 'Nova mensagem recebida', status: 'Eii! Acompanho seu perfil faz um tempo já. Curto demais o que você posta!😍', icon: MessageCircle },
         { action: 'IA processando resposta', status: 'Aplicando sua personalidade...', icon: User },
-        { action: 'Resposta enviada', status: 'Lead qualificado automaticamente', icon: CheckCircle },
-        { action: 'Reunião agendada', status: 'Convertido em oportunidade', icon: Calendar }
+        { action: 'Resposta enviada', status: 'Aaaah, que mensagem boa de receber! Fico super feliz mesmo 🖤 Dei uma olhada no seu perfil também e acho que tem uma coisa que pode somar MUITO no que você faz. Posso te mandar um áudio explicando?', icon: CheckCircle },
+        { action: 'Áudio enviado', status: 'Executando abordagem personalizada para qualificação do lead.', icon: Calendar }
       ]
     },
     {
@@ -54,10 +54,10 @@ const IntegrationsDemo = () => {
         'Fecha vendas por áudio e texto'
       ],
       demoSteps: [
-        { action: 'Lead interessado detectado', status: 'Iniciando sequência de vendas...', icon: Phone },
+        { action: 'Lead interessado detectado', status: 'Oii, podemos marcar uma consulta? que horas posso te ligar?', icon: Phone },
         { action: 'Ligação automática iniciada', status: 'Falando com SUA voz...', icon: User },
         { action: 'Objeções contornadas', status: 'Apresentando proposta...', icon: MessageCircle },
-        { action: 'Venda fechada', status: 'Pagamento confirmado!', icon: CheckCircle }
+        { action: 'Agendamento marcado no Google Calendar + link de pagamento enviado', status: 'Vanessa, ficou agendado pra quarta-feira às 14h certinho! Acabei de te enviar o link do pagamento da consulta. Qualquer coisa, tô por aqui!', icon: CheckCircle }
       ]
     },
     {
@@ -70,15 +70,15 @@ const IntegrationsDemo = () => {
       subtitle: 'Nunca Mais Perca uma Reunião Importante',
       description: 'Seu agente IA gerencia sua agenda como um assistente pessoal premium. Marca, desmarca, reagenda e otimiza seu tempo automaticamente.',
       features: [
-        'Marca reuniões baseado na sua disponibilidade real',
+        'Marca reuniões, consultas ou serviços baseado na sua disponibilidade real',
         'Envia lembretes automáticos para clientes',
         'Reagenda conflitos automaticamente',
         'Otimiza sua agenda para máxima produtividade'
       ],
       demoSteps: [
-        { action: 'Cliente solicita reunião', status: 'Verificando disponibilidade...', icon: Calendar },
+        { action: 'Cliente solicita consulta', status: 'Verificando disponibilidade...', icon: Calendar },
         { action: 'Horário encontrado', status: 'Enviando convite automático...', icon: Clock },
-        { action: 'Reunião confirmada', status: 'Lembretes programados...', icon: CheckCircle },
+        { action: 'Consulta confirmada', status: 'Lembretes programados...', icon: CheckCircle },
         { action: 'Otimização completa', status: 'Agenda maximizada!', icon: Zap }
       ]
     }
