@@ -48,7 +48,8 @@ const AgentTypes = () => {
         'Apresenta propostas personalizadas para cada cliente',
         'Contorna objeções usando técnicas de vendas avançadas',
         'Fecha vendas por WhatsApp, Instagram e ligações',
-        'Faz follow-up automático até converter o lead'
+        'Faz follow-up automático até converter o lead',
+        'Emite notas fiscais automaticamente após a venda'
       ],
       metrics: {
         conversion: '85%',
@@ -81,10 +82,10 @@ const AgentTypes = () => {
           detail: '"Entendo sua preocupação com o preço..."'
         },
         { 
-          action: 'Venda fechada!', 
-          status: 'Pagamento confirmado', 
+          action: 'Venda fechada + NF emitida!', 
+          status: 'Pagamento confirmado e nota fiscal gerada', 
           icon: CheckCircle,
-          detail: 'R$ 2.997 - PIX recebido ✓'
+          detail: 'R$ 2.997 - PIX recebido ✓ | NF #001234 emitida'
         }
       ]
     },

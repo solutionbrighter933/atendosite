@@ -33,8 +33,8 @@ const Features = () => {
     },
     {
       icon: Phone,
-      title: 'Ligações Inteligentes',
-      description: 'Faz e recebe ligações, qualifica leads, agenda reuniões e fecha vendas por telefone.',
+      title: 'Agente de Ligações Completo',
+      description: 'Liga automaticamente para leads, usa sua voz clonada, qualifica com perguntas inteligentes, contorna objeções, agenda reuniões no seu calendário e ainda envia propostas por WhatsApp.',
       color: 'from-purple-500 to-pink-500'
     },
     {
@@ -57,8 +57,8 @@ const Features = () => {
     },
     {
       icon: Settings,
-      title: 'Prompts Infinitos',
-      description: 'Customização total da personalidade. É como ter um cérebro completamente sob seu comando.',
+      title: 'Integrações Ilimitadas',
+      description: 'Conecta com CRM da sua empresa, Telegram, Apple Calendar, Stripe, Asaas, RD Station, HubSpot e mais de 5.000 aplicativos',
       color: 'from-cyan-500 to-purple-500'
     },
     {
@@ -69,8 +69,8 @@ const Features = () => {
     },
     {
       icon: Send,
-      title: 'Vendas em Piloto Automático',
-      description: 'Qualifica leads, apresenta ofertas, contorna objeções e fecha vendas 24/7.',
+      title: 'Emissão de Notas Fiscais Automáticas',
+      description: 'Após fechar uma venda, emite automaticamente a nota fiscal através de integrações com sistemas contábeis e plataformas de faturamento.',
       color: 'from-purple-500 to-cyan-500'
     }
   ];
@@ -116,9 +116,49 @@ const Features = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 rounded-full text-cyan-400 font-semibold backdrop-blur-sm">
-            <Brain className="w-5 h-5 mr-2" />
-            +50 Integrações Disponíveis
+          <div className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-2xl p-8 backdrop-blur-sm">
+            <h3 className="text-2xl font-bold text-white mb-6">Integrações Ilimitadas</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-white rounded-lg p-2 mx-auto mb-2 flex items-center justify-center">
+                  <Settings className="w-8 h-8 text-blue-600" />
+                </div>
+                <span className="text-sm text-gray-300">CRM Personalizado</span>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-white rounded-lg p-1 mx-auto mb-2 flex items-center justify-center">
+                  <img src="/Telegram_logo.svg.webp" alt="Telegram" className="w-10 h-10" />
+                </div>
+                <span className="text-sm text-gray-300">Telegram</span>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-white rounded-lg p-1 mx-auto mb-2 flex items-center justify-center">
+                  <img src="/applecalendar.png" alt="Apple Calendar" className="w-10 h-10" />
+                </div>
+                <span className="text-sm text-gray-300">Apple Calendar</span>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-white rounded-lg p-1 mx-auto mb-2 flex items-center justify-center">
+                  <img src="/stripe.png" alt="Stripe" className="w-10 h-10" />
+                </div>
+                <span className="text-sm text-gray-300">Stripe</span>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-white rounded-lg p-1 mx-auto mb-2 flex items-center justify-center">
+                  <img src="/asaas-icon-512.png" alt="Asaas" className="w-10 h-10" />
+                </div>
+                <span className="text-sm text-gray-300">Asaas</span>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg p-2 mx-auto mb-2 flex items-center justify-center">
+                  <Brain className="w-8 h-8 text-white" />
+                </div>
+                <span className="text-sm text-gray-300">+5.000 Apps</span>
+              </div>
+            </div>
+            <p className="text-gray-300 text-sm">
+              Conecte com RD Station, HubSpot, Pipedrive, Notion, Slack e milhares de outras ferramentas!
+            </p>
           </div>
         </div>
       </div>

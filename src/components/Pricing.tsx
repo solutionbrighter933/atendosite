@@ -7,7 +7,7 @@ const Pricing = () => {
       id: 'starter',
       name: 'Atendos IA Starter',
       subtitle: 'Starter - Plano ideal para começar com automação de atendimento',
-      price: 'R$ 796,00',
+      price: 'R$ 398,00',
       period: '/mês',
       trial: '7 dias grátis',
       popular: false,
@@ -28,7 +28,7 @@ const Pricing = () => {
       id: 'plus',
       name: 'Atendos IA Plus',
       subtitle: 'Plus - A Máquina de Conversão no Bolso',
-      price: '1.192,00',
+      price: 'R$ 596,00',
       period: '/mês',
       trial: '7 dias grátis',
       popular: true,
@@ -49,7 +49,7 @@ const Pricing = () => {
       id: 'pro',
       name: 'Atendos IA Pro',
       subtitle: 'Dominação Digital com Estilo Brutal',
-      price: '1.578,00',
+      price: 'R$ 789,00',
       period: '/mês',
       trial: '7 dias grátis',
       popular: false,
@@ -66,7 +66,9 @@ const Pricing = () => {
         'Agente SDR com follow-up automático',
         'Agente de voz que liga, qualifica e marca reunião sozinho',
         'Agente de agendamento via Google Calendar integrado',
-        'Agente vendedor com carrinho de compras embutido (Pix, boleto, crédito)'
+        'Agente vendedor com carrinho de compras embutido (Pix, boleto, crédito)',
+        'Emissão automática de notas fiscais pós-venda',
+        'Integrações ilimitadas: CRM, Telegram, Apple Calendar, Stripe, Asaas'
       ]
     }
   ];

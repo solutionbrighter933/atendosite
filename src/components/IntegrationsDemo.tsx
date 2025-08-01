@@ -51,13 +51,15 @@ const IntegrationsDemo = () => {
         'Faz ligações com sua voz clonada',
         'Responde mensagens 24/7 sem parar',
         'Qualifica leads através de perguntas inteligentes',
-        'Fecha vendas por áudio e texto'
+        'Fecha vendas por áudio e texto',
+        'Integra com CRM, Stripe, Asaas para pagamentos',
+        'Emite notas fiscais automaticamente'
       ],
       demoSteps: [
         { action: 'Lead interessado detectado', status: 'Oii, podemos marcar uma consulta? que horas posso te ligar?', icon: Phone },
-        { action: 'Ligação automática iniciada', status: 'Falando com SUA voz...', icon: User },
-        { action: 'Objeções contornadas', status: 'Apresentando proposta...', icon: MessageCircle },
-        { action: 'Agendamento marcado no Google Calendar + link de pagamento enviado', status: 'Vanessa, ficou agendado pra quarta-feira às 14h certinho! Acabei de te enviar o link do pagamento da consulta. Qualquer coisa, tô por aqui!', icon: CheckCircle }
+        { action: 'Ligação automática iniciada', status: 'Ligando com SUA voz clonada - "Oi Vanessa, aqui é o João! Vi que você tem interesse na consultoria..."', icon: User },
+        { action: 'Qualificação e objeções contornadas', status: 'Fazendo perguntas estratégicas e apresentando proposta personalizada durante a ligação', icon: MessageCircle },
+        { action: 'Venda fechada + Integração completa', status: 'Vanessa, ficou agendado pra quarta-feira às 14h! Pagamento processado via Stripe, dados salvos no CRM e nota fiscal sendo emitida automaticamente.', icon: CheckCircle }
       ]
     },
     {
@@ -66,20 +68,23 @@ const IntegrationsDemo = () => {
       logo: '/googlecalendar.png',
       color: 'from-blue-500 to-indigo-600',
       borderColor: 'border-blue-500/30',
-      title: 'Agenda que se Organiza Sozinha',
-      subtitle: 'Nunca Mais Perca uma Reunião Importante',
-      description: 'Seu agente IA gerencia sua agenda como um assistente pessoal premium. Marca, desmarca, reagenda e otimiza seu tempo automaticamente.',
+      title: 'Agendamento Inteligente com Google Calendar',
+      subtitle: 'Sua Agenda Organizada, Suas Vendas Otimizadas',
+      description: 'Seu agente IA não só agenda consultas automaticamente no Google Calendar e Apple Calendar, mas também qualifica o cliente, envia links de pagamento quando necessário e gera notas fiscais instantaneamente após a confirmação.',
       features: [
-        'Marca reuniões, consultas ou serviços baseado na sua disponibilidade real',
-        'Envia lembretes automáticos para clientes',
-        'Reagenda conflitos automaticamente',
-        'Otimiza sua agenda para máxima produtividade'
+        'Sincronização em tempo real com Google Calendar e Apple Calendar',
+        'Qualificação automática do cliente antes do agendamento',
+        'Verificação inteligente de disponibilidade de horários',
+        'Envio automático de links de pagamento (Stripe/Asaas)',
+        'Geração instantânea de notas fiscais pós-confirmação',
+        'Lembretes automáticos e follow-ups personalizados'
       ],
       demoSteps: [
-        { action: 'Cliente solicita consulta', status: 'Verificando disponibilidade...', icon: Calendar },
-        { action: 'Horário encontrado', status: 'Enviando convite automático...', icon: Clock },
-        { action: 'Consulta confirmada', status: 'Lembretes programados...', icon: CheckCircle },
-        { action: 'Otimização completa', status: 'Agenda maximizada!', icon: Zap }
+        { action: 'Cliente solicita agendamento', status: 'Oi! Gostaria de agendar uma consulta com vocês. Quando vocês têm disponibilidade?', icon: MessageCircle },
+        { action: 'IA analisa e qualifica', status: 'Perfeito! Para eu encontrar o melhor horário, me conta: é para consultoria empresarial ou individual?', icon: User },
+        { action: 'Verifica disponibilidade', status: 'Consultando Google Calendar e Apple Calendar em tempo real... Tenho terça às 14h ou quinta às 10h disponíveis.', icon: Calendar },
+        { action: 'Agendamento confirmado + Link de pagamento', status: 'Agendado para terça às 14h! Aqui está o link para confirmar: [stripe.com/pay/123] - Consulta: R$ 300', icon: CheckCircle },
+        { action: 'Pagamento confirmado + NF gerada', status: 'Pagamento recebido ✓ | Nota Fiscal #001234 enviada por email | Lembrete agendado para 1h antes da consulta', icon: Zap }
       ]
     }
   ];
