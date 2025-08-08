@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import IntegrationsDemo from './components/IntegrationsDemo';
+import SmartDelivery from './components/SmartDelivery';
 import AgentTypes from './components/AgentTypes';
 import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
@@ -22,6 +23,7 @@ const HomePage = () => {
       <Hero />
       <Features />
       <IntegrationsDemo />
+      <SmartDelivery />
       <AgentTypes />
       <Pricing />
       <Testimonials />

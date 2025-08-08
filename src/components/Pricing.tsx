@@ -67,6 +67,7 @@ const Pricing = () => {
         'Agente de voz que liga, qualifica e marca reunião sozinho',
         'Agente de agendamento via Google Calendar integrado',
         'Agente vendedor com carrinho de compras embutido (Pix, boleto, crédito)',
+        'Smart Delivery: Gestão completa de pedidos e entregas com IA',
         'Emissão automática de notas fiscais pós-venda',
         'Integrações ilimitadas: CRM, Telegram, Apple Calendar, Stripe, Asaas'
       ]

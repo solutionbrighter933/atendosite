@@ -15,7 +15,8 @@ import {
   AlertCircle,
   Clock,
   Star,
-  Target
+  Target,
+  Brain
 } from 'lucide-react';
 
 const AgentTypes = () => {
@@ -37,11 +38,13 @@ const AgentTypes = () => {
       id: 'vendedor',
       name: 'Agente Vendedor',
       icon: ShoppingCart,
+      aiModel: 'GPT-5',
+      aiModelColor: 'text-green-400',
       color: 'from-green-500 to-emerald-600',
       borderColor: 'border-green-500/30',
       bgGlow: 'bg-green-500/10',
       title: 'Máquina de Vendas Implacável',
-      subtitle: 'Fecha Negócios Enquanto Você Dorme',
+      subtitle: 'Powered by GPT-5 • Fecha Negócios Enquanto Você Dorme',
       description: 'Seu vendedor digital que nunca cansa, nunca desiste e nunca perde uma oportunidade. Qualifica leads, apresenta propostas, contorna objeções e fecha vendas 24/7.',
       features: [
         'Qualifica leads automaticamente com perguntas inteligentes',
@@ -93,11 +96,13 @@ const AgentTypes = () => {
       id: 'suporte',
       name: 'Agente de Suporte',
       icon: Headphones,
+      aiModel: 'Claude 3.5 Sonnet',
+      aiModelColor: 'text-orange-400',
       color: 'from-blue-500 to-cyan-600',
       borderColor: 'border-blue-500/30',
       bgGlow: 'bg-blue-500/10',
       title: 'Suporte que Nunca Falha',
-      subtitle: 'Resolve Problemas na Velocidade da Luz',
+      subtitle: 'Powered by Claude 3.5 Sonnet • Resolve Problemas na Velocidade da Luz',
       description: 'Seu especialista em suporte que conhece cada detalhe do seu produto. Resolve dúvidas, problemas técnicos e mantém seus clientes sempre satisfeitos.',
       features: [
         'Resolve 90% das dúvidas instantaneamente',
@@ -148,11 +153,13 @@ const AgentTypes = () => {
       id: 'atendimento',
       name: 'Agente de Atendimento',
       icon: MessageCircle,
+      aiModel: 'Gemini 2.5 Pro',
+      aiModelColor: 'text-blue-400',
       color: 'from-purple-500 to-pink-600',
       borderColor: 'border-purple-500/30',
       bgGlow: 'bg-purple-500/10',
       title: 'Primeiro Contato Perfeito',
-      subtitle: 'Recepção VIP para Todos os Clientes',
+      subtitle: 'Powered by Gemini 2.5 Pro • Recepção VIP para Todos os Clientes',
       description: 'Seu recepcionista digital que causa a primeira impressão perfeita. Acolhe visitantes, direciona demandas e garante que ninguém seja ignorado.',
       features: [
         'Recebe todos os visitantes com cordialidade',
@@ -203,11 +210,13 @@ const AgentTypes = () => {
       id: 'gestor',
       name: 'Agente Gestor de Clientes',
       icon: Crown,
+      aiModel: 'Grok-4',
+      aiModelColor: 'text-purple-400',
       color: 'from-yellow-500 to-orange-600',
       borderColor: 'border-yellow-500/30',
       bgGlow: 'bg-yellow-500/10',
       title: 'Relacionamento que Gera Receita',
-      subtitle: 'Transforma Clientes em Fãs Apaixonados',
+      subtitle: 'Powered by Grok-4 • Transforma Clientes em Fãs Apaixonados',
       description: 'Seu gerente de relacionamento que nunca esquece um aniversário, sempre lembra de fazer follow-up e transforma clientes em defensores da marca.',
       features: [
         'Acompanha jornada completa de cada cliente',
@@ -258,11 +267,13 @@ const AgentTypes = () => {
       id: 'interativo',
       name: 'Agente Interativo',
       icon: Zap,
+      aiModel: 'Llama 3',
+      aiModelColor: 'text-cyan-400',
       color: 'from-cyan-500 to-purple-600',
       borderColor: 'border-cyan-500/30',
       bgGlow: 'bg-cyan-500/10',
       title: 'Experiência Mágica e Envolvente',
-      subtitle: 'Engajamento que Vicia e Converte',
+      subtitle: 'Powered by Llama 3 • Engajamento que Vicia e Converte',
       description: 'Seu especialista em engajamento que cria experiências interativas únicas. Gamifica processos, cria conexões emocionais e torna cada interação memorável.',
       features: [
         'Cria experiências gamificadas e divertidas',
@@ -354,6 +365,12 @@ const AgentTypes = () => {
                       <agent.icon className="w-8 h-8 text-white" />
                     </div>
                     <div>
+                      <div className="flex items-center mb-2">
+                        <Brain className="w-4 h-4 mr-2 text-gray-400" />
+                        <span className={`text-sm font-semibold ${agent.aiModelColor}`}>
+                          {agent.aiModel}
+                        </span>
+                      </div>
                       <h3 className="text-2xl font-bold text-white mb-1">
                         {agent.title}
                       </h3>
@@ -508,6 +525,16 @@ const AgentTypes = () => {
             <h3 className="text-3xl font-bold text-white mb-4">
               Monte Sua Equipe dos Sonhos
             </h3>
+            <div className="flex items-center justify-center mb-6">
+              <Brain className="w-6 h-6 text-cyan-400 mr-3" />
+              <span className="text-lg text-gray-300">
+                Powered by: <span className="text-green-400 font-semibold">GPT-5</span> • 
+                <span className="text-orange-400 font-semibold"> Claude 3.5 Sonnet</span> • 
+                <span className="text-blue-400 font-semibold"> Gemini 2.5 Pro</span> • 
+                <span className="text-purple-400 font-semibold"> Grok-4</span> • 
+                <span className="text-cyan-400 font-semibold"> Llama 3</span>
+              </span>
+            </div>
             <p className="text-gray-300 mb-6 max-w-3xl mx-auto text-lg">
               Combine diferentes tipos de agentes para criar a equipe perfeita para seu negócio.
               <span className="text-cyan-400 font-semibold"> Cada um com sua especialidade, todos trabalhando em harmonia.</span>
