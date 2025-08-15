@@ -6,6 +6,7 @@ import Features from './components/Features';
 import IntegrationsDemo from './components/IntegrationsDemo';
 import SmartDelivery from './components/SmartDelivery';
 import AgentTypes from './components/AgentTypes';
+import B2BLeadGenerator from './components/B2BLeadGenerator';
 import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
@@ -13,6 +14,7 @@ import Footer from './components/Footer';
 import TermosDeUso from './pages/TermosDeUso';
 import Privacidade from './pages/Privacidade';
 import Sobre from './pages/Sobre';
+import FloatingMeetingButton from './components/FloatingMeetingButton';
 import { initializeAnimations } from './utils/animations';
 import './styles/animations.css';
 
@@ -25,11 +27,13 @@ const HomePage = () => {
       <IntegrationsDemo />
       <SmartDelivery />
       <AgentTypes />
+      <B2BLeadGenerator />
       <Pricing />
       <Testimonials />
       <CTA />
       <Footer />
       
+      <FloatingMeetingButton />
       <div id="cursor-follower" className="fixed w-4 h-4 bg-cyan-400/50 rounded-full pointer-events-none z-50 mix-blend-difference transition-all duration-300" />
     </>
   );
