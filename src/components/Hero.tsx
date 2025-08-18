@@ -52,7 +52,7 @@ const Hero = () => {
         <div className="parallax-element mb-8">
           <div className="inline-flex items-center px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold mb-8 backdrop-blur-sm">
             <Sparkles className="w-4 h-4 mr-2" />
-            +9.000 Agentes IA Já Ativos Vendendo Sem Parar
+            +1.784 Agentes IA Já Ativos Vendendo Sem Parar
           </div>
         </div>
 

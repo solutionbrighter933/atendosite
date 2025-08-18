@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, Star, Zap, Crown, Rocket } from 'lucide-react';
+import { Check, Star, Zap, Crown, Rocket, Settings } from 'lucide-react';
 
 const Pricing = () => {
   const plans = [
@@ -21,7 +21,9 @@ const Pricing = () => {
         'Dashboard completo',
         'Suporte técnico',
         'Treinamento personalizado da IA',
-        'Até 1.000 mensagens/mês'
+        'Até 2.000 mensagens/mês',
+        'Integração automática com Google Sheets via IA',
+        'Agente de agendamento via Google Calendar integrado'
       ]
     },
     {
@@ -37,12 +39,14 @@ const Pricing = () => {
       borderColor: 'border-purple-500/30',
       bgGlow: 'bg-purple-500/10',
       features: [
-        '2.000 mensagens mensais com IA ativa 24h no automático',
+        '3.000 mensagens mensais com IA ativa 24h no automático',
         'Atendimento completo no Instagram Direct + WhatsApp',
         'Respostas adaptativas inteligentes que se moldam ao tom do cliente',
         'Monitoramento de leads em tempo real',
         'Funil de vendas invisível — o lead nem percebe que foi conduzido pro checkout',
-        'Análise de intenção de compra automática'
+        'Análise de intenção de compra automática',
+        'Integração automática com Google Sheets via IA',
+        'Agente de agendamento via Google Calendar integrado'
       ]
     },
     {
@@ -58,11 +62,11 @@ const Pricing = () => {
       borderColor: 'border-yellow-500/30',
       bgGlow: 'bg-yellow-500/10',
       features: [
-        '3.000 mensagens mensais com IA customizada',
+        'Mensagens ilimitadas mensais com + 500 modelos de IA disponíveis',
         'Atendimento total: WhatsApp + Instagram Direct, sem limites',
         'Integração automática com Google Sheets via IA',
         'Acesso prioritário ao suporte',
-        'Personalização insana da IA — treine ela do seu jeito',
+        'Modo personalização insana, treine a IA do seu jeito sem política de restrição',
         'Agente SDR com follow-up automático',
         'Agente de voz que liga, qualifica e marca reunião sozinho',
         'Agente de agendamento via Google Calendar integrado',
@@ -155,6 +159,82 @@ const Pricing = () => {
               </a>
             </div>
           ))}
+        </div>
+
+        {/* Integration Note */}
+        <div className="mt-12 text-center">
+          <div className="bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/30 rounded-2xl p-8 backdrop-blur-sm max-w-4xl mx-auto">
+            <div className="mb-6">
+              <div className="inline-flex items-center px-4 py-2 bg-orange-500/20 border border-orange-500/40 rounded-full text-orange-400 text-sm font-semibold mb-4 backdrop-blur-sm">
+                <Crown className="w-4 h-4 mr-2" />
+                Serviço Profissional Incluso
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">
+                Valor de Integração e Desenvolvimento de Prompt Profissional
+              </h3>
+              <div className="text-3xl font-bold text-orange-400 mb-4">
+                R$ 2.000
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="text-left">
+                <h4 className="text-lg font-semibold text-orange-400 mb-3 flex items-center">
+                  <Zap className="w-5 h-5 mr-2" />
+                  Modelo de Prompt Validado
+                </h4>
+                <ul className="space-y-2 text-gray-300">
+                  <li className="flex items-start">
+                    <Check className="w-4 h-4 text-green-400 mr-2 mt-1 flex-shrink-0" />
+                    <span className="text-sm">Prompts desenvolvidos por especialistas em IA</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-4 h-4 text-green-400 mr-2 mt-1 flex-shrink-0" />
+                    <span className="text-sm">Testados em milhares de conversas reais</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-4 h-4 text-green-400 mr-2 mt-1 flex-shrink-0" />
+                    <span className="text-sm">Otimizados para máxima taxa de conversão</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-4 h-4 text-green-400 mr-2 mt-1 flex-shrink-0" />
+                    <span className="text-sm">Personalizados para seu nicho de mercado</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="text-left">
+                <h4 className="text-lg font-semibold text-orange-400 mb-3 flex items-center">
+                  <Settings className="w-5 h-5 mr-2" />
+                  Integração Completa no Sistema
+                </h4>
+                <ul className="space-y-2 text-gray-300">
+                  <li className="flex items-start">
+                    <Check className="w-4 h-4 text-green-400 mr-2 mt-1 flex-shrink-0" />
+                    <span className="text-sm">Configuração de todas as integrações necessárias</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-4 h-4 text-green-400 mr-2 mt-1 flex-shrink-0" />
+                    <span className="text-sm">Conexão com WhatsApp, Instagram e Google</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-4 h-4 text-green-400 mr-2 mt-1 flex-shrink-0" />
+                    <span className="text-sm">Setup de CRM, Zapier, Make e outras ferramentas</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-4 h-4 text-green-400 mr-2 mt-1 flex-shrink-0" />
+                    <span className="text-sm">Testes completos antes da entrega</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="mt-6 p-4 bg-green-500/10 border border-green-500/30 rounded-xl">
+              <p className="text-green-400 font-semibold text-center">
+                Testes e suporte exclusívo pela nossa equipe durante o primeiro mês.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="mt-16 text-center">

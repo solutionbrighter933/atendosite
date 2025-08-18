@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import LogoCarousel from './components/LogoCarousel';
 import Features from './components/Features';
 import IntegrationsDemo from './components/IntegrationsDemo';
 import SmartDelivery from './components/SmartDelivery';
@@ -23,6 +24,7 @@ const HomePage = () => {
     <>
       <Header />
       <Hero />
+      <LogoCarousel />
       <Features />
       <IntegrationsDemo />
       <SmartDelivery />

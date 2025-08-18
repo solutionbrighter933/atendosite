@@ -61,7 +61,7 @@ const CTA = () => {
 
           <div className="text-center">
             <p className="text-gray-400 text-sm mb-4">
-              Junte-se a mais de 9.000 empresas que já descobriram o futuro
+              Junte-se a mais de 80 empresas que já descobriram o futuro com a Atendos IA
             </p>
             <div className="flex justify-center items-center space-x-4 text-xs text-gray-500">
               <span>✓ Integração instantânea</span>

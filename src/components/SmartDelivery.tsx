@@ -155,12 +155,6 @@ const SmartDelivery = () => {
       title: 'Logística de Entrega',
       description: 'Motoboys notificados automaticamente com rotas otimizadas',
       color: 'from-yellow-500 to-orange-600'
-    },
-    {
-      icon: MapPin,
-      title: 'Rastreamento em Tempo Real',
-      description: 'Cliente acompanha status do pedido desde o preparo até a entrega',
-      color: 'from-cyan-500 to-blue-600'
     }
   ];
 

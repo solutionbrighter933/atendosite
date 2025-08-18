@@ -211,3 +211,41 @@ html {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Logo Carousel Animation */
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 30s linear infinite;
+}
+
+/* Pause animation on hover */
+.animate-scroll-infinite:hover {
+  animation-play-state: paused;
+}
+
+/* Testimonials Carousel Animation */
+@keyframes scroll-testimonials {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-testimonials {
+  animation: scroll-testimonials 60s linear infinite;
+}
+
+/* Pause animation on hover */
+.animate-scroll-testimonials:hover {
+  animation-play-state: paused;
+}
