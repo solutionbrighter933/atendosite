@@ -17,19 +17,31 @@ import {
   User,
   Package,
   DollarSign,
-  Bell
+  Bell,
+  ArrowDown
 } from 'lucide-react';
 
 const SmartDelivery = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const [completedSteps, setCompletedSteps] = useState<number[]>([]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
     if (isAnimating) {
       interval = setInterval(() => {
-        setCurrentStep(prev => (prev + 1) % 8);
-      }, 2000);
+        setCurrentStep(prev => {
+          const nextStep = (prev + 1) % 8;
+          if (nextStep === 0) {
+            // Reset completed steps when starting over
+            setCompletedSteps([]);
+          } else {
+            // Add current step to completed steps
+            setCompletedSteps(prevCompleted => [...prevCompleted, prev]);
+          }
+          return nextStep;
+        });
+      }, 2500);
     }
     return () => clearInterval(interval);
   }, [isAnimating]);
@@ -37,11 +49,13 @@ const SmartDelivery = () => {
   const startAnimation = () => {
     setIsAnimating(true);
     setCurrentStep(0);
+    setCompletedSteps([]);
   };
 
   const stopAnimation = () => {
     setIsAnimating(false);
     setCurrentStep(0);
+    setCompletedSteps([]);
   };
 
   const deliverySteps = [
@@ -50,72 +64,80 @@ const SmartDelivery = () => {
       title: 'Cliente Faz Pedido',
       description: 'WhatsApp ou Instagram',
       icon: MessageCircle,
-      position: { x: 15, y: 25 },
       color: 'from-green-500 to-emerald-600',
-      detail: '"Quero 2 pizzas margherita e 1 coca-cola"'
+      detail: '"Quero 2 pizzas margherita e 1 coca-cola"',
+      bgColor: 'bg-green-500/10',
+      borderColor: 'border-green-500/30'
     },
     {
       id: 'ai-process',
       title: 'IA Processa Pedido',
       description: 'Entende e organiza automaticamente',
       icon: Zap,
-      position: { x: 35, y: 10 },
       color: 'from-purple-500 to-pink-600',
-      detail: 'Pedido #1234 criado no sistema'
+      detail: 'Pedido #1234 criado no sistema',
+      bgColor: 'bg-purple-500/10',
+      borderColor: 'border-purple-500/30'
     },
     {
       id: 'payment',
       title: 'Link de Pagamento',
       description: 'Enviado automaticamente',
       icon: CreditCard,
-      position: { x: 65, y: 10 },
       color: 'from-blue-500 to-cyan-600',
-      detail: 'PIX/Cartão - R$ 45,90'
+      detail: 'PIX/Cartão - R$ 45,90',
+      bgColor: 'bg-blue-500/10',
+      borderColor: 'border-blue-500/30'
     },
     {
       id: 'kitchen',
       title: 'Cozinha Notificada',
       description: 'Pedido vai para produção',
       icon: Store,
-      position: { x: 85, y: 25 },
       color: 'from-orange-500 to-red-600',
-      detail: 'Tempo estimado: 25 minutos'
+      detail: 'Tempo estimado: 25 minutos',
+      bgColor: 'bg-orange-500/10',
+      borderColor: 'border-orange-500/30'
     },
     {
       id: 'motoboy',
       title: 'Motoboy Avisado',
       description: 'Notificação automática',
       icon: Truck,
-      position: { x: 85, y: 50 },
       color: 'from-yellow-500 to-orange-600',
-      detail: 'João - Disponível para entrega'
+      detail: 'João - Disponível para entrega',
+      bgColor: 'bg-yellow-500/10',
+      borderColor: 'border-yellow-500/30'
     },
     {
       id: 'tracking',
       title: 'Cliente Acompanha',
       description: 'Updates em tempo real',
       icon: MapPin,
-      position: { x: 65, y: 75 },
       color: 'from-cyan-500 to-blue-600',
-      detail: 'Pedido saiu para entrega - 15 min'
+      detail: 'Pedido saiu para entrega - 15 min',
+      bgColor: 'bg-cyan-500/10',
+      borderColor: 'border-cyan-500/30'
     },
     {
       id: 'delivery',
       title: 'Entrega Realizada',
       description: 'Confirmação automática',
       icon: CheckCircle,
-      position: { x: 35, y: 75 },
       color: 'from-green-500 to-emerald-600',
-      detail: 'Entregue às 19:45'
+      detail: 'Entregue às 19:45',
+      bgColor: 'bg-green-500/10',
+      borderColor: 'border-green-500/30'
     },
     {
       id: 'invoice',
       title: 'Nota Fiscal Gerada',
       description: 'Emissão automática',
       icon: DollarSign,
-      position: { x: 15, y: 50 },
       color: 'from-purple-500 to-pink-600',
-      detail: 'NF #001234 enviada por email'
+      detail: 'NF #001234 enviada por email',
+      bgColor: 'bg-purple-500/10',
+      borderColor: 'border-purple-500/30'
     }
   ];
 
@@ -182,11 +204,11 @@ const SmartDelivery = () => {
           </p>
         </div>
 
-        {/* Animated Mind Map */}
+        {/* Make-Style Flow Demo */}
         <div className="mb-16">
           <div className="bg-black/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-bold text-white">Mapa Mental: Fluxo Completo Smart Delivery</h3>
+              <h3 className="text-2xl font-bold text-white">Fluxo de Automação Smart Delivery</h3>
               <button
                 onClick={isAnimating ? stopAnimation : startAnimation}
                 className="px-6 py-3 bg-gradient-to-r from-green-500 to-blue-500 rounded-full text-white font-semibold hover:scale-105 transition-all duration-300 flex items-center space-x-2 glow-effect"
@@ -199,94 +221,166 @@ const SmartDelivery = () => {
                 ) : (
                   <>
                     <Play className="w-5 h-5" />
-                    <span>Ver Fluxo</span>
+                    <span>Iniciar Fluxo</span>
                   </>
                 )}
               </button>
             </div>
 
-            <div className="relative h-[500px] bg-gradient-to-br from-gray-900/50 to-gray-800/50 rounded-xl overflow-hidden border border-gray-700">
-              {/* Central Hub */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-r from-green-500 to-blue-500 p-5 flex items-center justify-center shadow-2xl border-4 border-white/20">
-                  <Zap className="w-12 h-12 text-white" />
-                </div>
-                <div className="text-center mt-2">
-                  <div className="text-white font-bold text-sm">Atendos IA</div>
-                  <div className="text-gray-400 text-xs">Smart Delivery</div>
-                </div>
-              </div>
+            {/* Make-Style Vertical Flow */}
+            <div className="max-w-2xl mx-auto">
+              <div className="space-y-6">
+                {deliverySteps.map((step, index) => (
+                  <div key={step.id} className="relative">
+                    {/* Step Card */}
+                    <div
+                      className={`relative transition-all duration-700 transform ${
+                        isAnimating && index === currentStep
+                          ? 'scale-105 shadow-2xl'
+                          : completedSteps.includes(index)
+                            ? 'scale-100 opacity-80'
+                            : 'scale-95 opacity-40'
+                      }`}
+                    >
+                      <div
+                        className={`${step.bgColor} backdrop-blur-sm border-2 ${
+                          isAnimating && index === currentStep
+                            ? `${step.borderColor} shadow-[0_0_30px_rgba(34,211,238,0.3)]`
+                            : completedSteps.includes(index)
+                              ? 'border-green-500/50'
+                              : 'border-gray-700'
+                        } rounded-xl p-6 transition-all duration-700`}
+                      >
+                        <div className="flex items-center space-x-4">
+                          {/* Icon */}
+                          <div
+                            className={`w-16 h-16 rounded-xl bg-gradient-to-r ${step.color} p-4 flex items-center justify-center transition-all duration-700 ${
+                              isAnimating && index === currentStep
+                                ? 'animate-pulse scale-110'
+                                : completedSteps.includes(index)
+                                  ? 'scale-105'
+                                  : 'scale-90'
+                            }`}
+                          >
+                            <step.icon className="w-8 h-8 text-white" />
+                          </div>
 
-              {/* Steps */}
-              {deliverySteps.map((step, index) => (
-                <div
-                  key={step.id}
-                  className={`absolute transition-all duration-1000 ${
-                    isAnimating && index <= currentStep ? 'opacity-100 scale-100 z-10' : 'opacity-40 scale-75'
-                  }`}
-                  style={{
-                    left: `${step.position.x}%`,
-                    top: `${step.position.y}%`,
-                    transform: 'translate(-50%, -50%)'
-                  }}
-                >
-                  <div className={`w-18 h-18 rounded-full bg-gradient-to-r ${step.color} p-4 mb-3 shadow-lg border-2 border-white/20 ${
-                    isAnimating && index === currentStep ? 'animate-pulse ring-4 ring-white/50 scale-110' : ''
-                  }`}>
-                    <step.icon className="w-10 h-10 text-white drop-shadow-lg" />
-                  </div>
-                  <div className="text-center max-w-28">
-                    <div className="text-white font-bold text-xs mb-1 drop-shadow">{step.title}</div>
-                    <div className="text-gray-300 text-xs">{step.description}</div>
-                    {isAnimating && index === currentStep && (
-                      <div className="mt-3 p-2 bg-black/80 rounded-lg text-xs text-green-400 border border-green-500/50 shadow-lg backdrop-blur-sm">
-                        {step.detail}
+                          {/* Content */}
+                          <div className="flex-1">
+                            <h4 className={`text-lg font-bold mb-1 transition-colors duration-700 ${
+                              isAnimating && index === currentStep
+                                ? 'text-white'
+                                : completedSteps.includes(index)
+                                  ? 'text-green-400'
+                                  : 'text-gray-500'
+                            }`}>
+                              {step.title}
+                            </h4>
+                            <p className={`text-sm mb-2 transition-colors duration-700 ${
+                              isAnimating && index === currentStep
+                                ? 'text-cyan-400'
+                                : completedSteps.includes(index)
+                                  ? 'text-gray-300'
+                                  : 'text-gray-600'
+                            }`}>
+                              {step.description}
+                            </p>
+                            
+                            {/* Detail appears when active */}
+                            {isAnimating && index === currentStep && (
+                              <div className="mt-3 p-3 bg-black/70 rounded-lg border border-cyan-500/50 backdrop-blur-sm animate-fade-in-up">
+                                <p className="text-cyan-400 text-sm font-medium">
+                                  {step.detail}
+                                </p>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Status Indicator */}
+                          <div className="flex flex-col items-center space-y-2">
+                            {completedSteps.includes(index) ? (
+                              <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
+                                <CheckCircle className="w-5 h-5 text-white" />
+                              </div>
+                            ) : isAnimating && index === currentStep ? (
+                              <div className="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center animate-pulse">
+                                <div className="w-3 h-3 bg-white rounded-full animate-ping" />
+                              </div>
+                            ) : (
+                              <div className="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center">
+                                <div className="w-3 h-3 bg-gray-400 rounded-full" />
+                              </div>
+                            )}
+                            
+                            <span className="text-xs text-gray-400 font-mono">
+                              {String(index + 1).padStart(2, '0')}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Animated Data Flow */}
+                      {isAnimating && index === currentStep && (
+                        <div className="absolute -right-4 top-1/2 transform -translate-y-1/2">
+                          <div className="flex items-center space-x-1">
+                            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-ping" />
+                            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-ping" style={{ animationDelay: '0.2s' }} />
+                            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-ping" style={{ animationDelay: '0.4s' }} />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Connector Arrow */}
+                    {index < deliverySteps.length - 1 && (
+                      <div className="flex justify-center my-4">
+                        <div
+                          className={`transition-all duration-700 ${
+                            completedSteps.includes(index)
+                              ? 'text-green-400 scale-110'
+                              : isAnimating && index === currentStep
+                                ? 'text-cyan-400 animate-bounce'
+                                : 'text-gray-600 scale-90'
+                          }`}
+                        >
+                          <ArrowDown className="w-6 h-6" />
+                        </div>
                       </div>
                     )}
                   </div>
+                ))}
+              </div>
 
-                  {/* Animated Connection Lines to Center */}
-                  {isAnimating && index <= currentStep && (
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                      <div 
-                        className="absolute w-1 bg-gradient-to-r from-cyan-400 to-purple-400 animate-pulse"
-                        style={{
-                          height: `${Math.sqrt(Math.pow((step.position.x - 50), 2) + Math.pow((step.position.y - 50), 2)) * 4}px`,
-                          transformOrigin: 'top',
-                          transform: `rotate(${Math.atan2(step.position.y - 50, step.position.x - 50) * 180 / Math.PI + 90}deg)`
-                        }}
-                      />
-                    </div>
-                  )}
-                </div>
-              ))}
-
-              {/* Central Pulse Effect */}
+              {/* Progress Bar */}
               {isAnimating && (
-                <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-green-400 rounded-full animate-ping transform -translate-x-1/2 -translate-y-1/2" />
-                  <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-blue-400/30 rounded-full animate-pulse transform -translate-x-1/2 -translate-y-1/2" />
-                  <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-purple-400/20 rounded-full animate-pulse transform -translate-x-1/2 -translate-y-1/2" />
+                <div className="mt-8 p-4 bg-black/70 rounded-xl border border-gray-700 backdrop-blur-sm">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-white font-semibold">
+                      Progresso do Fluxo
+                    </span>
+                    <span className="text-cyan-400 font-mono">
+                      {currentStep + 1}/{deliverySteps.length}
+                    </span>
+                  </div>
+                  
+                  <div className="w-full bg-gray-800 rounded-full h-3 border border-gray-600 overflow-hidden">
+                    <div 
+                      className="bg-gradient-to-r from-green-400 via-cyan-400 to-blue-400 h-3 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(34,211,238,0.5)]"
+                      style={{ width: `${((currentStep + 1) / deliverySteps.length) * 100}%` }}
+                    />
+                  </div>
+                  
+                  <div className="mt-3 text-center">
+                    <p className="text-cyan-400 font-semibold text-lg">
+                      {deliverySteps[currentStep]?.title}
+                    </p>
+                    <p className="text-gray-300 text-sm">
+                      {deliverySteps[currentStep]?.detail}
+                    </p>
+                  </div>
                 </div>
               )}
             </div>
-
-            {isAnimating && (
-              <div className="mt-6 text-center">
-                <div className="text-green-400 font-semibold mb-2">
-                  Passo {currentStep + 1} de {deliverySteps.length}: {deliverySteps[currentStep]?.title}
-                </div>
-                <div className="text-gray-300 text-sm">
-                  {deliverySteps[currentStep]?.detail}
-                </div>
-                <div className="mt-4 w-full bg-gray-700 rounded-full h-2">
-                  <div 
-                    className="bg-gradient-to-r from-green-400 to-blue-400 h-2 rounded-full transition-all duration-1000"
-                    style={{ width: `${((currentStep + 1) / deliverySteps.length) * 100}%` }}
-                  />
-                </div>
-              </div>
-            )}
           </div>
         </div>
 

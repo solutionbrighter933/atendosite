@@ -49,7 +49,7 @@ const FloatingMeetingButton = () => {
               className="w-full px-4 py-3 bg-green-500 hover:bg-green-400 rounded-xl text-white font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg"
             >
               <MessageCircle className="w-5 h-5" />
-              <span>WhatsApp - Online</span>
+              <span>Online</span>
             </button>
             
             <button
@@ -57,7 +57,7 @@ const FloatingMeetingButton = () => {
               className="w-full px-4 py-3 bg-blue-500 hover:bg-blue-400 rounded-xl text-white font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg"
             >
               <Phone className="w-5 h-5" />
-              <span>Presencial - Pouso Alegre/MG</span>
+              <span>Presencial</span>
             </button>
           </div>
           

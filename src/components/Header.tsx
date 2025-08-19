@@ -51,12 +51,10 @@ const Header = () => {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
             </a>
             <a
-              href="https://wa.me/5535987079368"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/sobre"
               className="text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group"
             >
-              Contato
+              Sobre nós
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
             </a>
           </nav>
@@ -114,13 +112,11 @@ const Header = () => {
               Cases
             </a>
             <a
-              href="https://wa.me/5535987079368"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/sobre"
               className="block text-gray-300 hover:text-cyan-400 transition-colors duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contato
+              Sobre nós
             </a>
             <a 
               href="https://www.atendos.com.br/"

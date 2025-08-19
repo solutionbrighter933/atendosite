@@ -61,7 +61,7 @@ const Sobre = () => {
                 <p className="text-xl text-gray-300 leading-relaxed mb-8">
                   A <span className="text-cyan-400 font-semibold">Atendos IA</span> nasceu da visão ousada de duas mentes inquietas: 
                   <span className="text-purple-400 font-semibold"> Omar Furtado de Oliveira Neto</span> e 
-                  <span className="text-purple-400 font-semibold"> João Otávio Siqueira</span> — empreendedores obcecados por performance, 
+                  <span className="text-purple-400 font-semibold"> João Otávio Siqueira</span>, empreendedores obcecados por performance, 
                   automação e inteligência artificial aplicada a negócios reais.
                 </p>
 
@@ -87,7 +87,7 @@ const Sobre = () => {
                     <br />
                     <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                       É o início de uma nova era, onde cada empresa pode ter seu próprio clone digital vendendo, 
-                      atendendo, marcando reuniões e encantando clientes — 24h por dia.
+                      atendendo, marcando reuniões e encantando clientes 24h por dia.
                     </span>
                   </p>
                 </div>
@@ -132,7 +132,7 @@ const Sobre = () => {
                   <div className="space-y-4">
                     <div className="flex items-center">
                       <Target className="w-5 h-5 text-cyan-400 mr-3" />
-                      <span className="text-gray-300">Especialista em Performance e Automação</span>
+                      <span className="text-gray-300">Especialista em Marketing e Automação</span>
                     </div>
                     <div className="flex items-center">
                       <Zap className="w-5 h-5 text-purple-400 mr-3" />
@@ -177,7 +177,7 @@ const Sobre = () => {
                     </div>
                     <div className="flex items-center">
                       <Heart className="w-5 h-5 text-pink-400 mr-3" />
-                      <span className="text-gray-300">Apaixonado por Resultados Reais</span>
+                      <span className="text-gray-300">Apaixonado por resultados reais e testes</span>
                     </div>
                   </div>
                 </div>
@@ -227,15 +227,15 @@ const Sobre = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-cyan-400 mb-2">+9.000</div>
+                  <div className="text-4xl font-bold text-cyan-400 mb-2">+ 1.784</div>
                   <div className="text-gray-400">Agentes IA Ativos</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-purple-400 mb-2">R$ 50Mi+</div>
-                  <div className="text-gray-400">Em Vendas Geradas</div>
+                  <div className="text-4xl font-bold text-purple-400 mb-2">+ 17.639</div>
+                  <div className="text-gray-400">Vendas Geradas</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-pink-400 mb-2">500+</div>
+                  <div className="text-4xl font-bold text-pink-400 mb-2">+ 80</div>
                   <div className="text-gray-400">Empresas Atendidas</div>
                 </div>
                 <div className="text-center">
