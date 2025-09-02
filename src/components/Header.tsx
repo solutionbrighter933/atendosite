@@ -40,7 +40,7 @@ const Header = () => {
             <img 
               src="/LOGO.png" 
               alt="Atendos IA" 
-              className="h-10 w-auto group-hover:scale-110 transition-all duration-300"
+              className="hidden lg:block h-10 w-auto group-hover:scale-110 transition-all duration-300"
             />
           </div>
 

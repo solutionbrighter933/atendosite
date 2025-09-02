@@ -30,7 +30,7 @@ const DiscountModal: React.FC<DiscountModalProps> = ({ isOpen, onClose }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-300 z-10"
+          className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors duration-300 z-20 bg-black/50 rounded-full hover:bg-black/70"
         >
           <X className="w-6 h-6" />
         </button>

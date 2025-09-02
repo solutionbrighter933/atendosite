@@ -90,8 +90,49 @@ const Hero = () => {
       
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-transparent to-cyan-900/30" />
       
-      <div className="container mx-auto px-6 py-20 text-center relative z-10">
-        <div className="parallax-element mb-8">
+      <div className="container mx-auto px-6 py-20 text-center relative z-10 pt-32 lg:pt-20">
+        {/* Mobile Logo - Only visible on mobile */}
+        <div className="lg:hidden mb-8">
+          <div className="relative flex justify-center mb-4">
+            {/* Realistic white light effects */}
+            <div className="absolute inset-0 flex justify-center items-center">
+              {/* Main bright core */}
+              <div className="w-32 h-32 bg-white rounded-full opacity-80 animate-realistic-pulse blur-3xl"></div>
+              
+              {/* Secondary glow layers */}
+              <div className="absolute w-24 h-24 bg-white rounded-full opacity-60 animate-realistic-pulse-delayed blur-2xl"></div>
+              <div className="absolute w-16 h-16 bg-white rounded-full opacity-90 animate-realistic-pulse-fast blur-xl"></div>
+              
+              {/* Sharp inner light */}
+              <div className="absolute w-12 h-12 bg-white rounded-full opacity-95 animate-realistic-flicker blur-sm"></div>
+              <div className="absolute w-8 h-8 bg-white rounded-full opacity-100 animate-realistic-strobe"></div>
+              
+              {/* Outer atmospheric glow */}
+              <div className="absolute w-40 h-40 bg-gradient-radial from-white/30 via-white/10 to-transparent rounded-full animate-realistic-breathe blur-3xl"></div>
+              
+              {/* Light rays */}
+              <div className="absolute w-1 h-20 bg-gradient-to-t from-transparent via-white/80 to-transparent animate-realistic-ray-1 blur-sm" style={{transform: 'rotate(0deg)'}}></div>
+              <div className="absolute w-1 h-20 bg-gradient-to-t from-transparent via-white/80 to-transparent animate-realistic-ray-2 blur-sm" style={{transform: 'rotate(45deg)'}}></div>
+              <div className="absolute w-1 h-20 bg-gradient-to-t from-transparent via-white/80 to-transparent animate-realistic-ray-3 blur-sm" style={{transform: 'rotate(90deg)'}}></div>
+              <div className="absolute w-1 h-20 bg-gradient-to-t from-transparent via-white/80 to-transparent animate-realistic-ray-4 blur-sm" style={{transform: 'rotate(135deg)'}}></div>
+              
+              {/* Sparkle effects */}
+              <div className="absolute w-2 h-2 bg-white rounded-full animate-realistic-sparkle-1 opacity-80" style={{top: '20%', left: '30%'}}></div>
+              <div className="absolute w-1.5 h-1.5 bg-white rounded-full animate-realistic-sparkle-2 opacity-70" style={{top: '70%', right: '25%'}}></div>
+              <div className="absolute w-1 h-1 bg-white rounded-full animate-realistic-sparkle-3 opacity-90" style={{bottom: '30%', left: '20%'}}></div>
+              <div className="absolute w-1 h-1 bg-white rounded-full animate-realistic-sparkle-4 opacity-60" style={{top: '40%', right: '35%'}}></div>
+            </div>
+            
+            {/* Logo */}
+            <img 
+              src="/LOGO.png" 
+              alt="Atendos IA" 
+              className="h-16 w-auto relative z-20 drop-shadow-[0_0_15px_rgba(255,255,255,1)]"
+            />
+          </div>
+        </div>
+        
+        <div className="parallax-element mb-8 mt-16 lg:mt-0">
           <div className="inline-flex items-center px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold mb-8 backdrop-blur-sm">
             <Sparkles className="w-4 h-4 mr-2" />
             +1.784 Agentes IA Já Ativos Vendendo Sem Parar

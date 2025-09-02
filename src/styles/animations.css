@@ -436,6 +436,328 @@ html {
   animation: star-burst 1.5s ease-out forwards;
 }
 
+/* Realistic white light effects for mobile logo */
+@keyframes realistic-pulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1.2;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+
+@keyframes realistic-pulse-delayed {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes realistic-pulse-fast {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1.3;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes realistic-flicker {
+  0%, 100% {
+    opacity: 1.1;
+  }
+  10% {
+    opacity: 1.3;
+  }
+  20% {
+    opacity: 1.15;
+  }
+  30% {
+    opacity: 1.3;
+  }
+  40% {
+    opacity: 1.05;
+  }
+  50% {
+    opacity: 1.3;
+  }
+  60% {
+    opacity: 1.1;
+  }
+  70% {
+    opacity: 1.3;
+  }
+  80% {
+    opacity: 1.15;
+  }
+  90% {
+    opacity: 1.3;
+  }
+}
+
+@keyframes realistic-strobe {
+  0%, 90%, 100% {
+    opacity: 1.2;
+  }
+  5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85% {
+    opacity: 0.9;
+  }
+  10%, 20%, 30%, 40%, 50%, 60%, 70%, 80% {
+    opacity: 1.3;
+  }
+}
+
+@keyframes realistic-breathe {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes realistic-ray-1 {
+  0%, 100% {
+    opacity: 0.5;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    opacity: 1;
+    transform: rotate(5deg) scale(1.1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: rotate(-3deg) scale(0.9);
+  }
+  75% {
+    opacity: 1.1;
+    transform: rotate(2deg) scale(1.05);
+  }
+}
+
+@keyframes realistic-ray-2 {
+  0%, 100% {
+    opacity: 0.6;
+    transform: rotate(45deg) scale(1);
+  }
+  33% {
+    opacity: 0.9;
+    transform: rotate(50deg) scale(1.1);
+  }
+  66% {
+    opacity: 1.1;
+    transform: rotate(40deg) scale(0.95);
+  }
+}
+
+@keyframes realistic-ray-3 {
+  0%, 100% {
+    opacity: 0.7;
+    transform: rotate(90deg) scale(1);
+  }
+  40% {
+    opacity: 1;
+    transform: rotate(95deg) scale(1.05);
+  }
+  80% {
+    opacity: 0.8;
+    transform: rotate(85deg) scale(1.1);
+  }
+}
+
+@keyframes realistic-ray-4 {
+  0%, 100% {
+    opacity: 0.5;
+    transform: rotate(135deg) scale(1);
+  }
+  20% {
+    opacity: 1.1;
+    transform: rotate(140deg) scale(1.15);
+  }
+  60% {
+    opacity: 0.7;
+    transform: rotate(130deg) scale(0.9);
+  }
+}
+
+@keyframes realistic-sparkle-1 {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  20% {
+    opacity: 1.2;
+    transform: scale(1.5) rotate(90deg);
+  }
+  40% {
+    opacity: 0.5;
+    transform: scale(0.5) rotate(180deg);
+  }
+  60% {
+    opacity: 1.2;
+    transform: scale(1.2) rotate(270deg);
+  }
+  80% {
+    opacity: 0.8;
+    transform: scale(0.8) rotate(360deg);
+  }
+}
+
+@keyframes realistic-sparkle-2 {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  15% {
+    opacity: 0.8;
+    transform: scale(1.3) rotate(45deg);
+  }
+  35% {
+    opacity: 0.2;
+    transform: scale(0.4) rotate(135deg);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.1) rotate(225deg);
+  }
+  75% {
+    opacity: 0.4;
+    transform: scale(0.7) rotate(315deg);
+  }
+}
+
+@keyframes realistic-sparkle-3 {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.4) rotate(60deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.6) rotate(180deg);
+  }
+  75% {
+    opacity: 0.9;
+    transform: scale(1) rotate(300deg);
+  }
+}
+
+@keyframes realistic-sparkle-4 {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  30% {
+    opacity: 0.7;
+    transform: scale(1.2) rotate(120deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(0.9) rotate(240deg);
+  }
+}
+
+/* Apply realistic animations */
+.animate-realistic-pulse {
+  animation: realistic-pulse 2.5s ease-in-out infinite;
+}
+
+.animate-realistic-pulse-delayed {
+  animation: realistic-pulse-delayed 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.animate-realistic-pulse-fast {
+  animation: realistic-pulse-fast 1.8s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.animate-realistic-flicker {
+  animation: realistic-flicker 4s ease-in-out infinite;
+}
+
+.animate-realistic-strobe {
+  animation: realistic-strobe 3s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.animate-realistic-breathe {
+  animation: realistic-breathe 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-realistic-ray-1 {
+  animation: realistic-ray-1 3.5s ease-in-out infinite;
+}
+
+.animate-realistic-ray-2 {
+  animation: realistic-ray-2 4s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.animate-realistic-ray-3 {
+  animation: realistic-ray-3 3.8s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-realistic-ray-4 {
+  animation: realistic-ray-4 4.2s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.animate-realistic-sparkle-1 {
+  animation: realistic-sparkle-1 2.5s ease-in-out infinite;
+}
+
+.animate-realistic-sparkle-2 {
+  animation: realistic-sparkle-2 3s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.animate-realistic-sparkle-3 {
+  animation: realistic-sparkle-3 2.8s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+.animate-realistic-sparkle-4 {
+  animation: realistic-sparkle-4 3.2s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+/* Gradient radial utility */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
 /* Title celebration effects */
 .title-celebration {
   position: relative;
