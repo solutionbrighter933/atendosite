@@ -20,11 +20,13 @@ import {
   Bell,
   ArrowDown
 } from 'lucide-react';
+import DiscountModal from './DiscountModal';
 
 const SmartDelivery = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
+  const [showDiscountModal, setShowDiscountModal] = useState(false);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -56,6 +58,11 @@ const SmartDelivery = () => {
     setIsAnimating(false);
     setCurrentStep(0);
     setCompletedSteps([]);
+  };
+
+  const handleCreateAgentClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowDiscountModal(true);
   };
 
   const deliverySteps = [
@@ -488,9 +495,8 @@ const SmartDelivery = () => {
           </div>
 
           <a
-            href="https://www.atendos.com.br/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            onClick={handleCreateAgentClick}
             className="px-10 py-4 bg-gradient-to-r from-green-500 to-blue-500 rounded-full text-white font-bold text-xl hover:from-green-400 hover:to-blue-400 transition-all duration-300 transform hover:scale-105 glow-effect inline-flex items-center space-x-2"
           >
             <Truck className="w-6 h-6" />
@@ -499,6 +505,11 @@ const SmartDelivery = () => {
           </a>
         </div>
       </div>
+      
+      <DiscountModal 
+        isOpen={showDiscountModal} 
+        onClose={() => setShowDiscountModal(false)} 
+      />
     </section>
   );
 };

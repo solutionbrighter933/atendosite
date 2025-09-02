@@ -1,9 +1,18 @@
 import React from 'react';
 import { ArrowRight, Zap, Clock, Shield } from 'lucide-react';
+import DiscountModal from './DiscountModal';
 
 const CTA = () => {
+  const [showDiscountModal, setShowDiscountModal] = React.useState(false);
+
+  const handleCreateAgentClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowDiscountModal(true);
+  };
+
   return (
-    <section className="py-20 relative overflow-hidden">
+    <>
+      <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-purple-900/30 to-pink-900/30" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.1),transparent_70%)]" />
       
@@ -24,15 +33,13 @@ const CTA = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-            <a 
-              href="https://www.atendos.com.br/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={handleCreateAgentClick}
               className="px-10 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full text-white font-bold text-xl hover:from-cyan-400 hover:to-purple-400 transition-all duration-300 transform hover:scale-105 glow-effect group"
             >
               Criar Agente IA Agora
               <ArrowRight className="inline-block ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
+            </button>
             
             <div className="text-gray-400 text-sm">
               Sem setup complexo • Sem mensalidade inicial
@@ -71,7 +78,13 @@ const CTA = () => {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+
+      <DiscountModal 
+        isOpen={showDiscountModal} 
+        onClose={() => setShowDiscountModal(false)} 
+      />
+    </>
   );
 };
 

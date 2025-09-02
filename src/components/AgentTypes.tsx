@@ -12,8 +12,16 @@ import {
   ArrowRight,
   Settings
 } from 'lucide-react';
+import DiscountModal from './DiscountModal';
 
 const AgentTypes = () => {
+  const [showDiscountModal, setShowDiscountModal] = React.useState(false);
+
+  const handleCreateAgentClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowDiscountModal(true);
+  };
+
   const agentTypes = [
     {
       id: 'vendedor',
@@ -308,9 +316,8 @@ const AgentTypes = () => {
               ))}
             </div>
             <a
-              href="https://www.atendos.com.br/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
+              onClick={handleCreateAgentClick}
               className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full text-white font-bold text-lg hover:from-cyan-400 hover:to-purple-400 transition-all duration-300 transform hover:scale-105 glow-effect inline-flex items-center space-x-2"
             >
               <span>Criar Minha Equipe de Agentes IA</span>
@@ -319,6 +326,11 @@ const AgentTypes = () => {
           </div>
         </div>
       </div>
+      
+      <DiscountModal 
+        isOpen={showDiscountModal} 
+        onClose={() => setShowDiscountModal(false)} 
+      />
     </section>
   );
 };

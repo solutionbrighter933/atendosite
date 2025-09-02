@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight, Sparkles, Bot, Zap } from 'lucide-react';
+import DiscountModal from './DiscountModal';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const [showDiscountModal, setShowDiscountModal] = React.useState(false);
 
   useEffect(() => {
     const createParticles = () => {
@@ -20,6 +23,36 @@ const Hero = () => {
     };
 
     createParticles();
+
+    // Listen for fireworks event
+    const handleFireworks = () => {
+      if (titleRef.current) {
+        // Change title text
+        const originalHTML = titleRef.current.innerHTML;
+        titleRef.current.innerHTML = `
+          <span class="bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent animate-gradient-text font-bold animate-title-glow">
+            Parabénsss! Prepare-se para
+          </span>
+          <br />
+          <span class="bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent animate-gradient-text font-bold animate-title-glow">
+            destruir a concorrência!
+          </span>
+        `;
+        
+        // Add white glow effect
+        titleRef.current.classList.add('title-celebration');
+        
+        // Revert after 3 seconds
+        setTimeout(() => {
+          if (titleRef.current) {
+            titleRef.current.innerHTML = originalHTML;
+            titleRef.current.classList.remove('title-celebration');
+          }
+        }, 3000);
+      }
+    };
+
+    window.addEventListener('fireworks-celebration', handleFireworks);
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!heroRef.current) return;
@@ -39,11 +72,20 @@ const Hero = () => {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('fireworks-celebration', handleFireworks);
+    };
   }, []);
 
+  const handleCreateAgentClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowDiscountModal(true);
+  };
+
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <>
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div ref={particlesRef} className="absolute inset-0 pointer-events-none" />
       
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-transparent to-cyan-900/30" />
@@ -57,7 +99,7 @@ const Hero = () => {
         </div>
 
         <div className="parallax-element mb-12">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 ref={titleRef} className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
               Seu Novo Funcionário
             </span>
@@ -79,15 +121,13 @@ const Hero = () => {
 
         <div className="parallax-element mb-12">
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <a 
-              href="https://www.atendos.com.br/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={handleCreateAgentClick}
               className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full text-white font-semibold text-lg hover:from-cyan-400 hover:to-purple-400 transition-all duration-300 transform hover:scale-105 glow-effect group"
             >
               Criar Meu Agente IA
               <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
+            </button>
             
             <button 
               onClick={() => {
@@ -125,7 +165,13 @@ const Hero = () => {
           <div className="w-1 h-3 bg-cyan-400 rounded-full mt-2 animate-pulse" />
         </div>
       </div>
-    </section>
+      </section>
+
+      <DiscountModal 
+        isOpen={showDiscountModal} 
+        onClose={() => setShowDiscountModal(false)} 
+      />
+    </>
   );
 };
 

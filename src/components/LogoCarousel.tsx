@@ -9,7 +9,9 @@ const LogoCarousel = () => {
     { name: 'Empresa 4', logo: '/4.png' },
     { name: 'Empresa 5', logo: '/5.png' },
     { name: 'Empresa 6', logo: '/6.png' },
-    { name: 'Empresa 7', logo: '/7.png' }
+    { name: 'Empresa 7', logo: '/7.png' },
+    { name: 'Empresa 8', logo: '/8.png' },
+    { name: 'Empresa 9', logo: '/9.png' }
   ];
 
   // Duplicar os logos para criar o efeito de loop infinito

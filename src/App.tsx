@@ -8,6 +8,7 @@ import IntegrationsDemo from './components/IntegrationsDemo';
 import SmartDelivery from './components/SmartDelivery';
 import AgentTypes from './components/AgentTypes';
 import B2BLeadGenerator from './components/B2BLeadGenerator';
+import AtendosMeeting from './components/AtendosMeeting';
 import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
@@ -30,6 +31,7 @@ const HomePage = () => {
       <SmartDelivery />
       <AgentTypes />
       <B2BLeadGenerator />
+      <AtendosMeeting />
       <Pricing />
       <Testimonials />
       <CTA />

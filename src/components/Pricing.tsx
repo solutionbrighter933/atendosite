@@ -1,7 +1,15 @@
 import React from 'react';
 import { Check, Star, Zap, Crown, Rocket, Settings } from 'lucide-react';
+import DiscountModal from './DiscountModal';
 
 const Pricing = () => {
+  const [showDiscountModal, setShowDiscountModal] = React.useState(false);
+
+  const handleCreateAgentClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowDiscountModal(true);
+  };
+
   const plans = [
     {
       id: 'starter',
@@ -72,6 +80,7 @@ const Pricing = () => {
         'Agente de agendamento via Google Calendar integrado',
         'Agente vendedor com carrinho de compras embutido (Pix, boleto, crédito)',
         'Smart Delivery: Gestão completa de pedidos e entregas com IA',
+        'Atendos Meeting: Notetaker com IA para Zoom, Meet e Teams',
         'Emissão automática de notas fiscais pós-venda',
         'Integrações ilimitadas: CRM, Telegram, Apple Calendar, Stripe, Asaas'
       ]
@@ -148,9 +157,8 @@ const Pricing = () => {
               </div>
 
               <a
-                href="https://www.atendos.com.br/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                onClick={handleCreateAgentClick}
                 className={`w-full px-6 py-4 bg-gradient-to-r ${plan.color} rounded-full text-white font-bold text-center hover:scale-105 transition-all duration-300 glow-effect block ${
                   plan.popular ? 'text-lg' : ''
                 }`}
@@ -265,6 +273,11 @@ const Pricing = () => {
           </div>
         </div>
       </div>
+      
+      <DiscountModal 
+        isOpen={showDiscountModal} 
+        onClose={() => setShowDiscountModal(false)} 
+      />
     </section>
   );
 };

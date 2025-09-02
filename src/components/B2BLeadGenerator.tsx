@@ -24,12 +24,14 @@ import {
   Eye,
   Edit3
 } from 'lucide-react';
+import DiscountModal from './DiscountModal';
 
 const B2BLeadGenerator = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
   const [foundLeads, setFoundLeads] = useState<any[]>([]);
+  const [showDiscountModal, setShowDiscountModal] = useState(false);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -98,6 +100,11 @@ const B2BLeadGenerator = () => {
     setCurrentStep(0);
     setSearchQuery('');
     setFoundLeads([]);
+  };
+
+  const handleCreateAgentClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowDiscountModal(true);
   };
 
   const demoSteps = [
@@ -178,21 +185,19 @@ const B2BLeadGenerator = () => {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section data-section="b2b-lead-generator" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-black to-purple-900/20" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold mb-6 backdrop-blur-sm">
             <Target className="w-4 h-4 mr-2" />
-            Nova Feature: B2B Lead Generator
+            Nova Feature: Atendos Leadsgen
           </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Gerador de Leads
+              Atendos Leadsgen
             </span>
-            <br />
-            <span className="text-white">para B2B</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto">
             Digite "busque empresas de tecnologia em São Paulo" e nossa IA encontra centenas de leads qualificados 
@@ -203,31 +208,33 @@ const B2BLeadGenerator = () => {
 
         {/* Demo Interface */}
         <div className="mb-16">
-          <div className="bg-black/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8">
+          <div className="bg-black/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-4 md:p-8">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-bold text-white">Demonstração: B2B Lead Generator em Ação</h3>
+              <h3 className="text-lg md:text-2xl font-bold text-white">Demonstração: Atendos Leadsgen em Ação</h3>
               <button
                 onClick={isAnimating ? stopDemo : startDemo}
-                className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white font-semibold hover:scale-105 transition-all duration-300 flex items-center space-x-2 glow-effect"
+                className="px-3 md:px-6 py-2 md:py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white font-semibold hover:scale-105 transition-all duration-300 flex items-center space-x-1 md:space-x-2 glow-effect text-sm md:text-base"
               >
                 {isAnimating ? (
                   <>
                     <Pause className="w-5 h-5" />
-                    <span>Pausar Demo</span>
+                    <span className="hidden sm:inline">Pausar Demo</span>
+                    <span className="sm:hidden">Pausar</span>
                   </>
                 ) : (
                   <>
                     <Play className="w-5 h-5" />
-                    <span>Iniciar Demo</span>
+                    <span className="hidden sm:inline">Iniciar Demo</span>
+                    <span className="sm:hidden">Iniciar</span>
                   </>
                 )}
               </button>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
               {/* Search Interface */}
               <div className="space-y-6">
-                <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 rounded-xl p-6 border border-gray-700">
+                <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 rounded-xl p-4 md:p-6 border border-gray-700">
                   <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
                     <Search className="w-5 h-5 mr-2 text-blue-400" />
                     Busca Inteligente
@@ -237,10 +244,10 @@ const B2BLeadGenerator = () => {
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Ex: empresas de tecnologia em São Paulo"
-                      className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none"
+                      placeholder="Ex: empresas de tecnologia em SP"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 bg-black/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none text-sm md:text-base"
                     />
-                    <button className="absolute right-2 top-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-md text-white text-sm hover:scale-105 transition-all duration-300">
+                    <button className="absolute right-1 md:right-2 top-1 md:top-2 px-2 md:px-4 py-1 md:py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-md text-white text-xs md:text-sm hover:scale-105 transition-all duration-300">
                       <Search className="w-4 h-4" />
                     </button>
                   </div>
@@ -260,38 +267,38 @@ const B2BLeadGenerator = () => {
                   {demoSteps.map((step, index) => (
                     <div
                       key={index}
-                      className={`flex items-center space-x-4 p-4 rounded-lg transition-all duration-700 ${
+                      className={`flex items-center space-x-2 md:space-x-4 p-3 md:p-4 rounded-lg transition-all duration-700 ${
                         isAnimating && index <= currentStep 
-                          ? `bg-gradient-to-r ${step.color.replace('to-', 'to-').split(' ')[0]}/20 ${step.color.replace('from-', 'to-').split(' ')[1]}/20 border border-blue-500/30` 
+                          ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30' 
                           : 'bg-gray-800/50 border border-gray-700'
                       }`}
                     >
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                      <div className={`w-8 md:w-12 h-8 md:h-12 rounded-full flex items-center justify-center flex-shrink-0 ${
                         isAnimating && index <= currentStep 
                           ? `bg-gradient-to-r ${step.color}` 
                           : 'bg-gray-700'
                       }`}>
-                        <step.icon className="w-6 h-6 text-white" />
+                        <step.icon className="w-4 md:w-6 h-4 md:h-6 text-white" />
                       </div>
-                      <div className="flex-1">
-                        <div className={`font-semibold ${
+                      <div className="flex-1 min-w-0">
+                        <div className={`font-semibold text-sm md:text-base ${
                           isAnimating && index <= currentStep ? 'text-white' : 'text-gray-500'
                         }`}>
                           {step.title}
                         </div>
-                        <div className={`text-sm ${
+                        <div className={`text-xs md:text-sm ${
                           isAnimating && index <= currentStep ? 'text-blue-400' : 'text-gray-600'
                         }`}>
                           {step.description}
                         </div>
                         {isAnimating && index === currentStep && (
-                          <div className="mt-2 text-xs text-gray-300 bg-black/30 p-2 rounded border border-gray-600">
+                          <div className="mt-2 text-xs text-gray-300 bg-black/30 p-2 rounded border border-gray-600 break-words">
                             {step.detail}
                           </div>
                         )}
                       </div>
                       {isAnimating && index === currentStep && (
-                        <div className="w-4 h-4 bg-blue-400 rounded-full animate-pulse"></div>
+                        <div className="w-3 md:w-4 h-3 md:h-4 bg-blue-400 rounded-full animate-pulse flex-shrink-0"></div>
                       )}
                     </div>
                   ))}
@@ -299,69 +306,71 @@ const B2BLeadGenerator = () => {
               </div>
 
               {/* Results Panel */}
-              <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 rounded-xl p-6 border border-gray-700">
+              <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 rounded-xl p-4 md:p-6 border border-gray-700">
                 <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
                   <Target className="w-5 h-5 mr-2 text-green-400" />
                   Leads Encontrados
                 </h4>
                 
                 {foundLeads.length > 0 ? (
-                  <div className="space-y-4 max-h-96 overflow-y-auto">
+                  <div className="space-y-3 md:space-y-4 max-h-64 md:max-h-96 overflow-y-auto">
                     {foundLeads.map((lead, index) => (
                       <div
                         key={lead.id}
-                        className="bg-black/30 border border-gray-600 rounded-lg p-4 hover:bg-black/50 transition-all duration-300"
+                        className="bg-black/30 border border-gray-600 rounded-lg p-3 md:p-4 hover:bg-black/50 transition-all duration-300"
                         style={{ animationDelay: `${index * 200}ms` }}
                       >
                         <div className="flex items-start justify-between mb-3">
-                          <div>
-                            <h5 className="font-semibold text-white">{lead.name}</h5>
+                          <div className="min-w-0 flex-1">
+                            <h5 className="font-semibold text-white text-sm md:text-base truncate">{lead.name}</h5>
                             <p className="text-xs text-gray-400">{lead.category}</p>
                           </div>
-                          <div className="flex space-x-2">
+                          <div className="flex space-x-1 md:space-x-2 flex-shrink-0 ml-2">
                             <button className="p-1 text-blue-400 hover:text-blue-300">
-                              <Eye className="w-4 h-4" />
+                              <Eye className="w-3 md:w-4 h-3 md:h-4" />
                             </button>
                             <button className="p-1 text-green-400 hover:text-green-300">
-                              <Edit3 className="w-4 h-4" />
+                              <Edit3 className="w-3 md:w-4 h-3 md:h-4" />
                             </button>
                           </div>
                         </div>
                         
-                        <div className="space-y-2 text-sm">
+                        <div className="space-y-1 md:space-y-2 text-xs md:text-sm">
                           <div className="flex items-center text-gray-300">
-                            <Mail className="w-4 h-4 mr-2 text-blue-400" />
-                            {lead.email}
+                            <Mail className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2 text-blue-400 flex-shrink-0" />
+                            <span className="truncate">{lead.email}</span>
                           </div>
                           <div className="flex items-center text-gray-300">
-                            <Phone className="w-4 h-4 mr-2 text-green-400" />
-                            {lead.phone}
+                            <Phone className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2 text-green-400 flex-shrink-0" />
+                            <span className="truncate">{lead.phone}</span>
+                          </div>
+                          <div className="flex items-start text-gray-300">
+                            <MapPin className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2 text-red-400 flex-shrink-0 mt-0.5" />
+                            <span className="text-xs md:text-sm leading-tight break-words">{lead.address}</span>
                           </div>
                           <div className="flex items-center text-gray-300">
-                            <MapPin className="w-4 h-4 mr-2 text-red-400" />
-                            {lead.address}
+                            <Globe className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2 text-purple-400 flex-shrink-0" />
+                            <span className="truncate">{lead.website}</span>
                           </div>
                           <div className="flex items-center text-gray-300">
-                            <Globe className="w-4 h-4 mr-2 text-purple-400" />
-                            {lead.website}
-                          </div>
-                          <div className="flex items-center text-gray-300">
-                            <Clock className="w-4 h-4 mr-2 text-yellow-400" />
-                            {lead.hours}
+                            <Clock className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2 text-yellow-400 flex-shrink-0" />
+                            <span className="text-xs md:text-sm">{lead.hours}</span>
                           </div>
                         </div>
                       </div>
                     ))}
                     
                     {isAnimating && currentStep >= 3 && (
-                      <div className="mt-6 space-y-3">
-                        <button className="w-full px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white font-semibold hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
+                      <div className="mt-4 md:mt-6 space-y-2 md:space-y-3">
+                        <button className="w-full px-3 md:px-4 py-2 md:py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white font-semibold hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-1 md:space-x-2 text-sm md:text-base">
                           <Send className="w-5 h-5" />
-                          <span>Enviar para Todos (247 leads)</span>
+                          <span className="hidden sm:inline">Enviar para Todos (247 leads)</span>
+                          <span className="sm:hidden">Enviar (247)</span>
                         </button>
-                        <button className="w-full px-4 py-3 border border-blue-500 text-blue-400 rounded-lg font-semibold hover:bg-blue-500/10 transition-all duration-300 flex items-center justify-center space-x-2">
+                        <button className="w-full px-3 md:px-4 py-2 md:py-3 border border-blue-500 text-blue-400 rounded-lg font-semibold hover:bg-blue-500/10 transition-all duration-300 flex items-center justify-center space-x-1 md:space-x-2 text-sm md:text-base">
                           <Edit3 className="w-5 h-5" />
-                          <span>Personalizar Individualmente</span>
+                          <span className="hidden sm:inline">Personalizar Individualmente</span>
+                          <span className="sm:hidden">Personalizar</span>
                         </button>
                       </div>
                     )}
@@ -369,7 +378,7 @@ const B2BLeadGenerator = () => {
                 ) : (
                   <div className="text-center py-12">
                     <Database className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-                    <p className="text-gray-400">
+                    <p className="text-gray-400 text-sm md:text-base">
                       {isAnimating ? 'Buscando leads...' : 'Inicie a demonstração para ver os resultados'}
                     </p>
                   </div>
@@ -402,38 +411,38 @@ const B2BLeadGenerator = () => {
         </div>
 
         {/* Use Cases */}
-        <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-2xl p-8 backdrop-blur-sm mb-16">
-          <h3 className="text-3xl font-bold text-white text-center mb-8">
+        <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-2xl p-6 md:p-8 backdrop-blur-sm mb-16">
+          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-8">
             Exemplos de Buscas Inteligentes
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div className="space-y-4">
-              <h4 className="text-xl font-semibold text-blue-400 mb-4">Por Setor:</h4>
-              <div className="space-y-2">
-                <div className="bg-black/30 p-3 rounded-lg border border-gray-600">
-                  <span className="text-gray-300">"empresas de tecnologia em São Paulo"</span>
+              <h4 className="text-lg md:text-xl font-semibold text-blue-400 mb-4">Por Setor:</h4>
+              <div className="space-y-2 md:space-y-3">
+                <div className="bg-black/30 p-2 md:p-3 rounded-lg border border-gray-600">
+                  <span className="text-gray-300 text-sm md:text-base">"empresas de tecnologia em São Paulo"</span>
                 </div>
-                <div className="bg-black/30 p-3 rounded-lg border border-gray-600">
-                  <span className="text-gray-300">"clínicas médicas no Rio de Janeiro"</span>
+                <div className="bg-black/30 p-2 md:p-3 rounded-lg border border-gray-600">
+                  <span className="text-gray-300 text-sm md:text-base">"clínicas médicas no Rio de Janeiro"</span>
                 </div>
-                <div className="bg-black/30 p-3 rounded-lg border border-gray-600">
-                  <span className="text-gray-300">"escritórios de advocacia em Belo Horizonte"</span>
+                <div className="bg-black/30 p-2 md:p-3 rounded-lg border border-gray-600">
+                  <span className="text-gray-300 text-sm md:text-base">"escritórios de advocacia em BH"</span>
                 </div>
               </div>
             </div>
             
             <div className="space-y-4">
-              <h4 className="text-xl font-semibold text-purple-400 mb-4">Por Características:</h4>
-              <div className="space-y-2">
-                <div className="bg-black/30 p-3 rounded-lg border border-gray-600">
-                  <span className="text-gray-300">"startups com mais de 50 funcionários"</span>
+              <h4 className="text-lg md:text-xl font-semibold text-purple-400 mb-4">Por Características:</h4>
+              <div className="space-y-2 md:space-y-3">
+                <div className="bg-black/30 p-2 md:p-3 rounded-lg border border-gray-600">
+                  <span className="text-gray-300 text-sm md:text-base">"startups com mais de 50 funcionários"</span>
                 </div>
-                <div className="bg-black/30 p-3 rounded-lg border border-gray-600">
-                  <span className="text-gray-300">"empresas que usam Salesforce"</span>
+                <div className="bg-black/30 p-2 md:p-3 rounded-lg border border-gray-600">
+                  <span className="text-gray-300 text-sm md:text-base">"empresas que usam Salesforce"</span>
                 </div>
-                <div className="bg-black/30 p-3 rounded-lg border border-gray-600">
-                  <span className="text-gray-300">"e-commerces com faturamento acima de R$ 1M"</span>
+                <div className="bg-black/30 p-2 md:p-3 rounded-lg border border-gray-600">
+                  <span className="text-gray-300 text-sm md:text-base">"e-commerces com faturamento &gt; R$ 1M"</span>
                 </div>
               </div>
             </div>
@@ -442,41 +451,46 @@ const B2BLeadGenerator = () => {
 
         {/* Benefits */}
         <div className="text-center">
-          <h3 className="text-3xl font-bold text-white mb-8">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
             Resultados Comprovados
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto mb-12">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-400 mb-2">10x</div>
-              <div className="text-gray-400">Mais Leads Qualificados</div>
+              <div className="text-2xl md:text-4xl font-bold text-blue-400 mb-2">10x</div>
+              <div className="text-gray-400 text-sm md:text-base">Mais Leads</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-purple-400 mb-2">85%</div>
-              <div className="text-gray-400">Taxa de Entrega</div>
+              <div className="text-2xl md:text-4xl font-bold text-purple-400 mb-2">85%</div>
+              <div className="text-gray-400 text-sm md:text-base">Taxa de Entrega</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-green-400 mb-2">3x</div>
-              <div className="text-gray-400">Mais Conversões</div>
+              <div className="text-2xl md:text-4xl font-bold text-green-400 mb-2">3x</div>
+              <div className="text-gray-400 text-sm md:text-base">Conversões</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-cyan-400 mb-2">90%</div>
-              <div className="text-gray-400">Economia de Tempo</div>
+              <div className="text-2xl md:text-4xl font-bold text-cyan-400 mb-2">90%</div>
+              <div className="text-gray-400 text-sm md:text-base">Economia</div>
             </div>
           </div>
 
           <a
-            href="https://www.atendos.com.br/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-10 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white font-bold text-xl hover:from-blue-400 hover:to-purple-400 transition-all duration-300 transform hover:scale-105 glow-effect inline-flex items-center space-x-2"
+            href="#"
+            onClick={handleCreateAgentClick}
+            className="px-6 md:px-10 py-3 md:py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white font-bold text-lg md:text-xl hover:from-blue-400 hover:to-purple-400 transition-all duration-300 transform hover:scale-105 glow-effect inline-flex items-center space-x-2"
           >
             <Target className="w-6 h-6" />
-            <span>Começar a Gerar Leads Agora</span>
+            <span className="hidden sm:inline">Começar a Gerar Leads Agora</span>
+            <span className="sm:hidden">Gerar Leads</span>
             <ArrowRight className="w-6 h-6" />
           </a>
         </div>
       </div>
+      
+      <DiscountModal 
+        isOpen={showDiscountModal} 
+        onClose={() => setShowDiscountModal(false)} 
+      />
     </section>
   );
 };
