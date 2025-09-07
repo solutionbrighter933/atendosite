@@ -9,6 +9,7 @@ import SmartDelivery from './components/SmartDelivery';
 import AgentTypes from './components/AgentTypes';
 import B2BLeadGenerator from './components/B2BLeadGenerator';
 import AtendosMeeting from './components/AtendosMeeting';
+import OpenRouterPartnership from './components/OpenRouterPartnership';
 import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
@@ -29,9 +30,10 @@ const HomePage = () => {
       <Features />
       <IntegrationsDemo />
       <SmartDelivery />
-      <AgentTypes />
       <B2BLeadGenerator />
       <AtendosMeeting />
+      <OpenRouterPartnership />
+      <AgentTypes />
       <Pricing />
       <Testimonials />
       <CTA />

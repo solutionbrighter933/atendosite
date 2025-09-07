@@ -265,66 +265,6 @@ const AgentTypes = () => {
           ))}
         </div>
 
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-2xl p-8 backdrop-blur-sm">
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Monte Sua Equipe dos Sonhos
-            </h3>
-            <div className="mb-6">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/30 rounded-full text-green-400 text-sm font-semibold mb-4 backdrop-blur-sm">
-                <Brain className="w-4 h-4 mr-2" />
-                Parceria Exclusiva com Open Router
-              </div>
-              <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-500/40 rounded-xl p-4 mb-6 backdrop-blur-sm">
-                <div className="flex items-center justify-center mb-2">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-green-500 to-blue-500 p-2 mr-3">
-                    <Brain className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-lg font-bold text-white">Open Router Partnership</span>
-                </div>
-                <p className="text-green-400 font-semibold text-lg">
-                  Acesso a mais de <span className="text-2xl text-white">400+ modelos de IA</span> diferentes!
-                </p>
-                <p className="text-gray-300 text-sm mt-2">
-                  Anthropic, OpenAI, Google, Meta, Mistral, Cohere e dezenas de outras empresas
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center justify-center mb-6">
-              <Brain className="w-6 h-6 text-cyan-400 mr-3" />
-              <span className="text-lg text-gray-300">
-                Exemplos: <span className="text-green-400 font-semibold">GPT-5</span> • 
-                <span className="text-orange-400 font-semibold"> Claude 3.5 Sonnet</span> • 
-                <span className="text-blue-400 font-semibold"> Gemini 2.5 Pro</span> • 
-                <span className="text-purple-400 font-semibold"> Grok-4</span> • 
-                <span className="text-cyan-400 font-semibold"> Llama 3</span> • 
-                <span className="text-pink-400 font-semibold"> +395 outros</span>
-              </span>
-            </div>
-            <p className="text-gray-300 mb-6 max-w-3xl mx-auto text-lg">
-              <span className="text-white font-semibold">Você escolhe o modelo ideal para cada agente!</span> 
-              <span className="text-cyan-400 font-semibold"> Flexibilidade total, resultados extraordinários.</span>
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-4 max-w-5xl mx-auto mb-8">
-              {agentTypes.map((agent) => (
-                <div key={agent.id} className="text-center">
-                  <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${agent.color} p-4 mx-auto mb-2`}>
-                    <agent.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-sm text-gray-300">{agent.name}</div>
-                </div>
-              ))}
-            </div>
-            <a
-              href="#"
-              onClick={handleCreateAgentClick}
-              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full text-white font-bold text-lg hover:from-cyan-400 hover:to-purple-400 transition-all duration-300 transform hover:scale-105 glow-effect inline-flex items-center space-x-2"
-            >
-              <span>Criar Minha Equipe de Agentes IA</span>
-              <ArrowRight className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
       </div>
       
       <DiscountModal 
